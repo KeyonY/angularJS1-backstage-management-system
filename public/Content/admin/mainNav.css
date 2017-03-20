@@ -1,0 +1,125 @@
+body {
+	background: #20292E;
+}
+.nav_ul{
+	margin-top: 16px;
+}
+.nav_li{
+	min-height: 40px;
+	line-height: 40px;
+}
+.nl_Lvone{
+	color: #90a6b5;
+	width: 192px;
+	min-height: 40px;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	transition: all 200ms;
+	-moz-transition: all 200ms;
+	-webkit-transition: all 200ms;
+}
+.nl_Lvone:hover{
+	background-color: #2c3942;
+}
+.nl_Lvone:hover > .nl_title{
+	color: #fff;	
+}
+.nl_Selected{
+	background-color: #2c3942;
+}
+.nl_Selected > .nl_title{
+	color: #fff;
+}
+
+.nl_title{
+	float: left;
+	width: 200px;
+	height: 40px;
+	padding: 0 0 0 0px;
+	line-height: 40px;
+	text-align: left;
+	font-size: 16px;
+}
+.unfold{
+	display: block;
+	float: right;
+	width: 10px;
+	height: 40px;
+	margin-right: 20px;
+	line-height: 40px;
+}
+.shrink{
+	display: none;
+	float: right;
+	width: 10px;
+	height: 40px;
+	margin-right: 20px;
+	line-height: 40px;
+}
+
+/******icon的样式*****/
+.icon{
+	display: block;
+	float: left;
+	margin: 10px 20px 0 20px;
+	width: 20px;
+	height: 20px;
+	background: url(images/sprites.png) no-repeat;
+}
+.icon-zixun{background-position: -1px -1px;}
+.icon-sucai{background-position: -1px -22px;width: 21px;margin-left: 19px;}
+.icon-zuopin{background-position: -1px -42px;}
+.icon-pinglun{background-position: -1px -63px;}
+.icon-yonghu{background-position: -1px -84px;height: 22px;}
+.icon-tuandui{background-position: -1px -105px;width: 22px;height: 20px;margin-left: 18px;}
+.icon-shuijun{background-position: -1px -124px;}
+.icon-tongzhi{background-position: -1px -143px;height: 18px;}
+.icon-geren{background-position: -1px -160px;}
+.icon-huishou{background-position: -1px -180px;}
+.icon-lunbo{background-position: -1px -268px;}
+.icon-guanggao{background-position: -1px -290px;}
+
+.nl_Lvone:hover .icon-zixun,.nl_Selected .icon-zixun{background-position: -26px -1px;}
+.nl_Lvone:hover .icon-sucai,.nl_Selected .icon-sucai{background-position: -25px -22px;}
+.nl_Lvone:hover .icon-zuopin,.nl_Selected .icon-zuopin{background-position: -25px -42px;}
+.nl_Lvone:hover .icon-pinglun,.nl_Selected .icon-pinglun{background-position: -25px -63px;}
+.nl_Lvone:hover .icon-yonghu,.nl_Selected .icon-yonghu{background-position: -25px -84px;}
+.nl_Lvone:hover .icon-tuandui,.nl_Selected .icon-tuandui{background-position: -25px -105px;}
+.nl_Lvone:hover .icon-shuijun,.nl_Selected .icon-shuijun{background-position: -25px -124px;}
+.nl_Lvone:hover .icon-tongzhi,.nl_Selected .icon-tongzhi{background-position: -25px -143px;}
+.nl_Lvone:hover .icon-geren,.nl_Selected .icon-geren{background-position: -25px -160px;}
+.nl_Lvone:hover .icon-huishou,.nl_Selected .icon-huishou{background-position: -25px -180px;}
+.nl_Lvone:hover .icon-lunbo,.nl_Selected .icon-lunbo{background-position: -25px -268px;}
+.nl_Lvone:hover .icon-guanggao,.nl_Selected .icon-guanggao{background-position: -26px -290px;}
+/******icon的样式 END*****/
+
+/*****二级分类*****/
+.nl_ul{
+	position: absolute;
+	visibility: hidden;
+	clear: both;
+	margin: 4px 0;
+	padding-bottom: 4px;
+	overflow: hidden;
+}
+.nl_li > a,
+.nl_li2 > a{
+	display: block;
+	height: 26px;
+	padding-left: 60px;
+	line-height: 26px;
+	font-size: 14px;
+	text-align: left;
+	color: #90a6b5;
+}
+.nl_li:hover > a,
+.nl_li2:hover > a{
+	color: #fff;
+}
+.nl_liSelected > a{
+	color: #fff;
+}
+/*****二级分类 END*****/

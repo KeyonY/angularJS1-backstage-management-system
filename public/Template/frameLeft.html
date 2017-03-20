@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>frame_c</title>
+<meta name="renderer" content="webkit">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="../Content/admin/commonMain.css" />
+<link rel="stylesheet" href="../Content/admin/mainNav.css" />
+</head>
+<body>
+    <ul class="nav_ul">
+    	<li class="nav_li" data-per="1,4,5,17,18,12,13,14,15,16">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-zixun"></i>资讯中心
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="1"><a href="javascript:action('/AdminNews/InfoAdd')">添加资讯</a></li>
+    				<li class="nl_li" data-per="4,5"><a href="javascript:action('/AdminNews/InfoControl')">资讯列表</a></li>
+    				<li class="nl_li" data-per="18"><a href="javascript:action('/AdminNews/Subject')">添加专题</a></li>
+    				<li class="nl_li" data-per="17"><a href="javascript:action('/AdminNews/SubjectList')">专题列表</a></li>
+    				<li class="nl_li" data-per="12,13,14,15,16"><a href="javascript:action('/AdminNews/ClassList')">分类列表</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="29,31,32,40,41,42,38,39">
+    		<div class="nl_Lvone">
+    			<h4 class="nl_title">
+                    <i class="icon icon-sucai"></i>
+                    <span class="nl_tt">素材中心</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			<!-- 字体板块 -->
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="29"><a href="javascript:action('/Admin', domainFont)">添加艺术字体</a></li>
+    				<li class="nl_li" data-per="31,32"><a href="javascript:action('/Admin/Works', domainFont)">艺术字体列表</a></li>
+    				<li class="nl_li" data-per="40"><a href="javascript:action('/Admin/UpFont', domainFont)">添加电脑字体</a></li>
+    				<li class="nl_li" data-per="41,42"><a href="javascript:action('/Admin/FontList', domainFont)">电脑字体列表</a></li>
+    				<li class="nl_li" data-per="38"><a href="javascript:action('/Admin/RepeatWorks', domainFont)">重复艺术字体</a></li>
+    				<li class="nl_li" data-per="39"><a href="javascript:action('/Admin/ClaimWorks', domainFont)">认领艺术字体</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="24">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-zuopin"></i>
+                    <span class="nl_tt">作品管理</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="24"><a href="javascript:action('worksControl/worksList.html')">作品列表</a></li>
+    				<li class="nl_li" data-per="24"><a href="javascript:action('worksControl/changedWorksList.html')">已修改作品列表</a></li>
+    			</ul>
+    		</div>
+    	</li>
+        <li class="nav_li" data-per="86,87,91,92">
+            <div class="nl_Lvone">
+                <h4 class="nl_title">
+                    <i class="icon icon-lunbo"></i>
+                    <span class="nl_tt">轮播和推荐位</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+                
+                <ul class="nl_ul">
+                    <li class="nl_li" data-per="87"><a href="javascript:action('Recommend/carous.html')">添加首页轮播图</a></li>
+                    <li class="nl_li" data-per="86"><a href="javascript:action('Recommend/carousList.html')">首页轮播图列表</a></li>
+                    <li class="nl_li" data-per="92"><a href="javascript:action('Recommend/recommend.html')">添加首页推荐位</a></li>
+                    <li class="nl_li" data-per="91"><a href="javascript:action('Recommend/recommendList.html')">首页推荐位列表</a></li>
+                </ul>
+            </div>
+        </li>
+    	<li class="nav_li" data-per="71,73">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-pinglun"></i>
+                    <span class="nl_tt">评论反馈</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="71"><a href="javascript:action('Critique/commentList.html')">评论列表</a></li>
+    				<li class="nl_li" data-per="73"><a href="javascript:action('Critique/feedbackList.html')">反馈列表</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="65,69,70">
+    		<div class="nl_Lvone">
+    			<h4 class="nl_title">
+                    <i class="icon icon-yonghu"></i>
+                    <span class="nl_tt">用户管理</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="65"><a href="javascript:action('UserControl/userList.html')">用户列表</a></li>
+    				<li class="nl_li" data-per="69"><a href="javascript:action('UserControl/activateResult.html')">激活结果</a></li>
+    				<li class="nl_li" data-per="70"><a href="javascript:action('UserControl/passResult.html')">找回密码结果</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="46,49,55">
+    		<div class="nl_Lvone">
+    			<h4 class="nl_title">
+                    <i class="icon icon-tuandui"></i>
+                    <span class="nl_tt">团队管理</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="46"><a href="javascript:action('../Template/teamManagement/positionApplicationList.html')">入职申请列表</a></li>
+    				<li class="nl_li" data-per="49"><a href="javascript:action('../Template/teamManagement/memberList.html')">成员列表</a></li>
+    				<li class="nl_li" data-per="55"><a href="javascript:action('../Template/teamManagement/positionList.html')">职位列表</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="63,59">
+    		<div class="nl_Lvone">    			
+    			<h4 id="navyAccManage" class="nl_title">
+                    <i class="icon icon-shuijun"></i>
+                    <span class="nl_tt">水军账号管理</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="63"><a href="javascript:action('../Template/navyAccountManage/myNavyAccount.html')">我的账号</a></li>
+    				<li class="nl_li" data-per="59"><a href="javascript:action('../Template/navyAccountManage/allNavyAccount.html')">所有账号</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="77,78">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-tongzhi"></i>
+                    <span class="nl_tt">通知管理</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li" data-per="77"><a href="javascript:action('/Template/notificationManage/addNotification.html')">添加通知</a></li>
+    				<li class="nl_li" data-per="78"><a href="javascript:action('/Template/notificationManage/notificationList.html')">通知列表</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-geren"></i>
+                    <span class="nl_tt">个人中心</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li"><a href="javascript:action('../Template/personalCenter/modifyPassword.html')">修改密码</a></li>
+    				<li class="nl_li"><a href="javascript:action('../Template/personalCenter/personalInfo.html')">个人信息</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    	<li class="nav_li" data-per="82">
+    		<div class="nl_Lvone">    			
+    			<h4 class="nl_title">
+                    <i class="icon icon-huishou"></i>
+                    <span class="nl_tt">回收站</span>
+                    <span class="unfold">+</span>
+                    <span class="shrink">-</span>
+                </h4>
+    			
+    			<ul class="nl_ul">
+    				<li class="nl_li"><a href="javascript:action('Recycle/works.html')">作品</a></li>
+    				<li class="nl_li"><a href="javascript:action('Recycle/news.html')">资讯</a></li>
+    				<li class="nl_li"><a href="javascript:action('Recycle/users.html')">用户</a></li>
+    			</ul>
+    		</div>
+    	</li>
+    </ul>
+
+	<script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+    //存储当前用户的所有权限内容
+    var permissions = '';
+
+    $(function(){
+    	$('.nl_ul').animate({height:'toggle'});
+        setTimeout(function(){
+            $('.nl_ul').css({position:'static',visibility:'visible'});
+        },400);
+    
+	    //一级菜单点击打开二级
+	    $('.nl_title').click(function(){
+	    	$(this).siblings('.nl_ul').animate({height:'toggle'});
+	    	$(this).children('.unfold').toggle();
+	    	$(this).children('.shrink').toggle();
+	    })
+
+	    //二级菜单点击功能
+	    $('.nl_li').click(function(){
+	    	var text = $(this).find('a').html();
+	    	var dom = window.parent.parent.frames["frame_top"].document.getElementById('mainTitle');
+	    	dom.innerHTML = text;
+            $('.nl_ul li').removeClass('nl_liSelected');
+            $(this).addClass('nl_liSelected');
+            $(this).parents('.nav_li').siblings().children('.nl_Lvone').removeClass('nl_Selected');
+            $(this).parents('.nl_Lvone').addClass('nl_Selected');
+            //隐藏分类列表的返回上一级按钮
+            var winTop = window.parent.parent.frames["frame_top"].document;
+            $(winTop).find('#back').hide();
+	    })
+        $('.nl_li2').click(function(){
+            var text = $(this).parent().siblings('.nl_title').children('.nl_tt').html();
+            var dom = window.parent.parent.frames["frame_top"].document.getElementById('mainTitle');
+            dom.innerHTML = text;
+            $('.nl_ul li').removeClass('nl_liSelected');
+            $(this).addClass('nl_liSelected');
+            $(this).parents('.nav_li').siblings().children('.nl_Lvone').removeClass('nl_Selected');
+            $(this).parents('.nl_Lvone').addClass('nl_Selected');
+        })
+
+        //权限比对
+        var checkPermission = (function(){
+            var self;
+            var result = false;
+            return {
+                permission:'',
+                //获取用户所有权限，并对比输入的权限名称
+                check:function(id){
+                    if(id == ''||id == undefined){return result;}
+                    self = this;
+                    self.permission = window.parent.parent.frames["frame_top"].permission;
+                    self.repeat(id);
+                    // console.log(self.permission);
+                    // console.log('check:'+id+' '+result);
+                    return result;
+                },
+                //循环比对
+                repeat:function(id){
+                    // console.log($(self.permission));
+                    $(self.permission).each(function(index,e){
+                            result=false;
+                        if(e.permissionID == id){
+                            result=true;
+                            return false;
+                        }
+                    })
+                },
+                //自动检查是否有权限
+                auto:function(){
+                    self = this;
+                    $('.nav_ul').hide();
+                    var all = $('*');
+                    var arr = [];
+                    var timer = function(){
+                        setTimeout(function(){
+                        //找到frameTop 页面的全局变量permission 取值
+                        var winPer = window.parent.parent.frames["frame_top"].permission;
+                        if(winPer != ''){
+                            permissions = winPer;
+                            $('.nav_ul').show();
+                            $('li').each(function(index,e){
+                                if($(e).attr('data-per') == undefined){return ;}
+                                //判断是不是数组,是就分别执行 check()
+                                if($(e).attr('data-per').split(',').length>1){
+                                    arr = $(e).attr('data-per').split(',');
+                                    // console.log(arr);
+                                    for (var i=0;i<arr.length;i++){                       
+                                        if(self.check(arr[i])){
+                                            $(e).show();
+                                            return ;
+                                        }else{
+                                            $(e).hide();
+                                        }
+                                    }
+                                }
+                                //非数组的判断
+                                var id = parseInt($(e).attr('data-per'));
+                                if(!isNaN(id)){
+                                    // console.log(id);
+                                    if(self.check(id)){
+                                        $(e).show();
+                                    }else{
+                                        $(e).hide();
+                                    }
+                                }else{
+                                    $(e).show();
+                                }
+                            })
+                            return ;
+                        }
+                        timer();
+                    },100)
+                    }
+                    timer();
+                }
+            }
+        })()
+        checkPermission.auto();
+        
+    })
+
+     var domainFont = 'http://192.168.1.6:8086'; //域名
+    function action(url,domain){
+        if(arguments.length===1){
+            window.parent.frames["frameRight"].location.href = url;
+        }else if(arguments.length===2) {
+            window.parent.frames['frameRight'].location.href=domain + url;
+        }
+    }
+    </script>
+</body>
+</html>

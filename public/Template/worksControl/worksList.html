@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="/" />
+<meta name="viewport" content="width=device-width" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>作品列表</title>
+
+<link rel="stylesheet" href="../../Content/bootstrap.min.css">
+<link rel="stylesheet" href="../../Content/admin/commonMain.css" />
+<link rel="stylesheet" href="../../Content/admin/worksControl.css" />
+<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+<script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/admin/angular.min.js"></script>
+<script src="../../Scripts/admin/directiveUI.js"></script>
+<script src="../../Scripts/admin/worksControl.js"></script>
+
+
+</head>
+<body>
+<div class="cContBox" ng-app="worksListPro" ng-controller="worksListCtrl">
+
+	<!-- 搜索页的搜索栏 -->
+	<div class="searchBox" ng-if="keywords != ''">
+        <div class="sb_inputBox">
+            <div class="dropdown" id="dropdown2">
+                <div class="verticalLine"></div>
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                    <span class="dd_text">作品</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" ng-if="!cp.check(4)"><a role="menuitem" tabindex="0" href="#">资讯</a></li>
+                    <li role="presentation" ng-if="!cp.check(41)"><a role="menuitem" tabindex="1" href="#">电脑字体</a></li>
+                    <li role="presentation" ng-if="!cp.check(31)"><a role="menuitem" tabindex="2" href="#">艺术字体</a></li>
+                    <li role="presentation" ng-if="!cp.check(24)"><a role="menuitem" tabindex="3" href="#">作品</a></li>
+                    <li role="presentation" ng-if="!cp.check(65)"><a role="menuitem" tabindex="4" href="#">设计师</a></li>
+                </ul>
+            </div>
+            <div class="verticalLine_20"></div>
+            <div class="sbi_input">
+                <input type="text" id="search_kw" />
+            </div>
+        </div>
+        <input type="hidden" id="searchCate"value="3" />
+        <button class="sb_btn" id="searchBtn" onClick="searchBtn()">搜索</button>
+    </div>
+
+	<div ng-controller="commonCtrl" ng-class="{'btn-group select_bar':true,'bg_clearFloat':keywords != ''}">
+		<button type="button" class="btn btn-default sb_selected" ng-click="clsSelect(0)" style="margin-right:-5px;">全部</button>
+		<button type="button" ng-repeat="cls in clsInfo" ng-show="cp2(cls.classID,perModule)" class="btn btn-default" ng-click="clsSelect(cls.classID)" ng-bind="cls.className"></button>
+	</div>
+
+	<search-tool ng-if="keywords == ''"></search-tool>
+
+	<select-group ng-if="keywords == ''"></select-group>
+
+	<div class="search_result" ng-if="keywords != ''">
+        <span>为您找到<span class="sr_color">“<span ng-bind="keywords">搜索的文字</span>”</span>相关结果<span ng-bind="data.pageInfo.TotalRec"></span>条</span>
+    </div>
+
+	<ctrl-group ng-if="!cp.check(27)"></ctrl-group>
+
+    <pass-new class="wl_pass" ng-show="dispose" data-message="全部 已通过 已推荐至首页" data-click="recommendStatus(0) recommendStatus(4) recommendStatus(2)"></pass-new>
+
+    <div class="clear"></div>
+	
+	<div class="wlBox" style="margin-top: 0px;" ng-controller="commonCtrl">
+		<div class="wl_lists" ng-repeat="work in data.view">
+			<div class="wll_imgBox">
+				<a ng-href="{{work.worksUrl}}" target="_blank">
+                    <img ng-src="{{work.cover}}" alt="{{work.title}}" />            
+                </a>
+			</div>
+			<div class="wll_line">
+	            <span class="wll_name">标题：</span>
+	            <a class="wll_text" target="_blank" ng-href="{{work.worksUrl}}" style="color:#3e9aac;" title="{{work.title}}" ng-bind="work.title"></a>
+	        </div>
+	        <label class="checkbox">
+	        	<div ng-class="{'cb_checked':work.checked}">
+	        		<input type="checkbox" ng-checked="work.checked" ng-click="work.checked = !work.checked" />
+	        	</div>
+	        </label>
+	        <div class="wll_line">
+	            <span class="wll_name">用户：</span>
+	            <a class="wll_text" target="_blank" ng-href="{{work.userUrl}}" style="color:#d1305a;" ng-bind="work.userView.NickName" title="{{work.userView.NickName}}"></a>
+	        </div>
+	        <div class="wll_line">
+	            <span class="wll_name">分类：
+	            <span ng-show="work.isOriginal">原创</span>
+	            <span ng-show="!work.isOriginal">转载</span>-</span>
+	            <select ng-if="!cp.check(28)" class="wll_select" ng-model="work.worksClass" ng-options="cls.classID as cls.className for cls in clsInfo" style="width: 60px;height: 22px;">
+	            	<option value="">--请选择--</option>
+	            </select>
+	            <span ng-if="cp.check(28)" ng-bind="clsInfo[work.worksClass-1].className"></span>
+	        </div>
+	        <div class="wll_line">
+	            <span class="wll_name">时间：</span>
+	            <span class="wll_text" ng-bind="work.timeAdd | jsonDate:'yyyy-MM-dd HH:mm'"></span>
+	        </div>
+	        <div class="wll_ctrls">
+	            <button ng-class="{'wll_btn':true,'locBtn':cp.check(25)}" ng-show="work.recommendStatus == 0" ng-click="recommend(work,4)" ng-disabled="cp.check(25)">通过</button>
+	            <button ng-class="{'wll_btn wll_btn_selected':true,'locBtn':cp.check(25)}" ng-show="work.recommendStatus != 0" ng-disabled="cp.check(25)">已通过</button>
+	            <button ng-class="{'wll_btn':true,'locBtn':cp.check(26)}" ng-show="work.recommendStatus != 2" ng-click="recommend(work,2)" ng-disabled="cp.check(26)">推荐至首页</button>
+	            <button ng-class="{'wll_btn wll_btn_selected wll_zhishouye':true,'locBtn':cp.check(26)}" ng-show="work.recommendStatus == 2" ng-click="recommend(work,0)" ng-disabled="cp.check(26)"></button>
+	            <button ng-class="{'wll_btn':true,'locBtn':cp.check(25)}" ng-show=" work.checkStatus == 0 || work.checkStatus == 1" ng-click="refuse(work)" ng-disabled="cp.check(25)">未通过</button>
+	            <button ng-class="{'wll_btn wll_btn_selected':true,'locBtn':cp.check(25)}" ng-show="work.checkStatus == 2" ng-disabled="cp.check(25)">未通过</button>
+	            <button ng-class="{'wll_btn wll_btn_del':true,'locBtn':cp.check(27)}" ng-click="deleteOne(work)" ng-disabled="cp.check(27)">删除</button>
+	        </div>
+		</div>
+	</div>
+
+	<modal-delete></modal-delete>
+
+<div class="paging_box">
+    <ul class="paging_ul">
+        <li class="paging_lists">
+            <a href="javascript:void(0);" class="paging_a paging_bg" ng-click="pageBtn((data.pageInfo.CurrentPage-1)>0?(data.pageInfo.CurrentPage-1):1)">
+                <div class="triangle_left"></div>
+            </a>
+        </li>
+        <li class="paging_lists" ng-hide="data.pageInfo.PageStart==1">
+            <a href="javascript:void(0)" ng-class="{'paging_a':true,'paging_a_selected':(1 == pageInfo.CurrentPage)}" ng-click="pageBtn(1)">1</a>
+        </li>
+        <li class="paging_lists" ng-show="data.pageInfo.NeedFirstEllipsis">
+            <span class="paging_span">......</span>
+        </li>
+        <li class="paging_lists pageRepeat" ng-repeat="page in data.pageInfo.pageList">
+            <a href="javascript:void(0);" ng-class="{'paging_a':true,'paging_a_selected':(page == data.pageInfo.CurrentPage)}" ng-click="pageBtn(page)">{{page}}</a>
+        </li>
+        <li class="paging_lists" ng-show="data.pageInfo.NeedLastEllipsis">
+            <span class="paging_span">......</span>
+        </li>
+        <li class="paging_lists" ng-hide="data.pageInfo.TotalPage==data.pageInfo.PageEnd">
+            <a href="javascript:void(0)" class="paging_a_big" ng-bind="data.pageInfo.TotalPage" ng-click="pageBtn(data.pageInfo.TotalPage)"></a>
+        </li>
+        <li class="paging_lists">
+            <a href="javascript:void(0)" class="paging_a paging_bg" ng-click="pageBtn((data.pageInfo.CurrentPage+1)<(data.pageInfo.TotalPage)?(data.pageInfo.CurrentPage+1):data.pageInfo.TotalPage)">
+                <div class="triangle_right"></div>
+            </a>
+        </li>
+        <span class="c4c">跳转到:</span>
+        <li class="paging_lists" style="position: relative;">
+            <input type="text" ng-model="data.pageInfo.pageInput" class="paging_input" />
+            <div ng-show="isNumber" class="prompt_min">
+                <span class="jumpGO_triangle"></span>
+                请输入数字
+            </div>
+            <div ng-show="isMax" class="prompt_min">
+                <span class="jumpGO_triangle"></span>
+                请输入正确页码
+            </div>
+        </li>
+        <li class="paging_lists">
+            <a href="javascript:void(0);" class="paging_a" ng-click="jumpGo()">GO</a>
+        </li>
+    </ul>
+</div>
+
+<error-modal></error-modal>
+
+</div>
+<script>
+    $(function(){
+        //打开页面，搜索栏里类别显示对应页面的分类
+        searchClass();
+    })
+
+    //修改顶部标题 与 左侧菜单显示
+    var _win = window.parent.parent.frames['frame_top'].document;
+    $(_win).find('#mainTitle').html('作品列表');
+    window.onload=function(){
+        navSelected('作品列表');
+    }
+</script>
+</body>
+</html>

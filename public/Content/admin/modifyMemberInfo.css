@@ -1,0 +1,102 @@
+/* modifyMemberInfo.css */
+body
+{
+    background: #f3f4f8;
+}
+.main
+{
+    width: 600px;
+    margin: 200px auto;
+    text-align: center;
+}
+p
+{
+    margin-top: 32px;
+    margin-bottom: 14px;
+}
+input[type='text']
+{
+    width: 430px;
+    height: 46px;
+    padding: 0 10px;
+
+    border: 1px solid #9a9a9c;
+}
+.sex
+{
+    padding-left: 36px;
+
+    text-align: left;
+}
+.man,
+.woman
+{
+    margin-right: 24px;
+    margin-left: 14px;
+}
+.btns
+{
+    margin-left: 98px;
+    margin-top: 36px;
+
+    text-align: left;
+}
+.btns > button
+{
+    height: 34px;
+
+    cursor: pointer;
+
+    color: #4db7c5;
+    border: 1px solid #4db7c5;
+    background: #fff;
+}
+.btns > button:hover {
+    color: #fff;
+    background: #4db7c5;
+    transition: all 400ms;
+}
+.btns > a
+{
+    line-height: 32px;
+
+    display: inline-block;
+
+    height: 32px;
+    margin-left: 64px;
+
+    text-align: center;
+    vertical-align: top;
+
+    color: #f25183;
+    border: 1px solid #f25183;
+}
+.btns > a:hover {
+    color: #fff;
+    background: #f25183;
+    transition: all 400ms;
+}
+.btns > button,
+.btns > a
+{
+    font-size: 14px;
+    font-weight: 500;
+
+    width: 110px;
+
+    border-radius: 3px;
+}
+.rela
+{
+    position: relative;
+}
+.tip
+{
+    font-size: 16px;
+
+    position: absolute;
+    bottom: -28px;
+    left: 118px;
+
+    color: #ea0001;
+}

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>frame_a</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="../Content/admin/commonMain.css" />
+	<style>
+		.main {
+			position: relative;
+			overflow: hidden;
+			background: #FFFFFF;
+		}
+		.logo {
+			float: left;
+			display: block;
+			font-size: 0;
+			width: 240px;
+			height: 60px;
+			background: #4cb7cb url(../Content/admin/images/logo.png) no-repeat;
+			background-position: 50px 10px;
+		}
+		.back{
+			display: none;
+			position: absolute;
+			top: 10px;
+			left: 264px;
+			z-index: 10;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border: 2px solid #4cb6cb;
+			background: url(../Content/admin/images/icon-back.png) no-repeat 9px 10px;
+			cursor: pointer;
+		}
+		#mainTitle{
+			float: left;
+			height: 60px;
+			padding-left: 85px;
+			font-size: 24px;
+			color: #656f71;
+			line-height: 60px;
+			font-weight: normal;
+		}
+		.topBoxRight {
+			width: 478px;
+			float: right;
+			overflow: hidden;
+		}
+		.upload_works_top {
+			float: left;
+			display: block;
+			width: 112px;
+			height: 36px;
+			line-height: 36px;
+			text-align: center;
+			background: #4CB7CB;
+			color: #FEFFFF;
+			border-radius: 4px;
+			text-decoration: none;
+			font-weight: 400;
+			margin-top: 12px;
+			transition: all 400ms;
+			-moz-transition: all 400ms;
+			-webkit-transition: all 400ms;
+		}
+		.upload_works_top:hover{
+			background-color: #2a8495;
+			color: #fff;
+		}
+		.info_top {
+			float: left;
+			width: 288px;
+			padding-top: 15px;
+			text-align: center;
+			color: #626368;
+		}
+		.info_top > p{
+			line-height: 18px;
+			font-size: 14px;
+			color: #555;
+		}
+		.logout {
+			display: block;
+			width: 78px;
+			height: 60px;
+			font-size: 0;
+			float: right;
+			background: #969aa5 url(../Content/admin/images/exit.png) no-repeat;
+			background-position: 22px 10px;
+		}
+	</style>
+</head>
+<body>
+    <div class="main">
+    	<a href="javascript:void(0)" class="logo" id="logo"></a>
+    	<span id="back" class="back" title="返回上一级" data-href="#"></span>
+    	<h2 id="mainTitle"></h2>
+	    <div class="topBoxRight">
+	    	<a href="#" class="upload_works_top" id="upload_works_top">上传作品</a>
+	    	<div class="info_top">
+	    		<p>
+	    			<span id="userName" class="userName">admin</span>
+	    			<span id="roleName" class="position">管理员</span>
+    			</p>
+	    		<p>
+	    			<span id="time"></span>
+	    		</p>
+	    	</div>
+	    	<a href="javascript:void(0);" id="logout" class="logout"></a>
+	    </div>
+    </div>
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+    	var permission = '';
+	var module = '';
+    	$(function(){
+    		// logo
+    		$('#logo').on('click', function () {
+    			var topWin = window.top;
+    			topWin.location.href = '/Template/iframeAdmin.html';
+    		})
+    		//获取用户信息
+			var D;
+			$.getJSON('/json/managerInfo.json',function(data){
+				D = data;
+				permission = D.permission;
+				module = D.module;
+				$('#userName').html(D.trueName);
+				$('#roleName').html(D.roleInfo.roleName);
+			})
+
+    		//获取现在的时间
+    		var time = new Date();
+    		var year = time.getFullYear();
+    		var month = time.getMonth()+1;
+    		var day = time.getDate();
+    		var weekday = time.getDay()-1;
+    		var arr = ['一','二','三','四','五','六','日'];
+    		$('#time').html(year+'-'+month+'-'+day+' 星期'+arr[weekday]);
+
+    		//注销按钮
+    		$('#logout').click(function(){
+    			$.ajax({
+	    			type:"GET",
+	    			async:true,
+	    			url:"/AdminMain/Logout",
+	    			success:function(data){
+	    				window.parent.location.href='/Template/login.html';
+	    			}
+	    		})
+    		})
+    		// 上传作品按钮
+    		$('#upload_works_top').on('click', function () {
+    			$.ajax({
+    				type:"GET",
+    				url:"/AdminUser/UpLoadWorks",
+    				success:function (obj) {
+    					if(obj.success){
+    						window.open(obj.message);
+    					}else {
+    						$(win).find('.modal-overlay').eq(0).css('display','block');
+    					}
+    				}
+    			})
+    		})
+
+    		// 上传互动作品按钮弹框关闭按钮
+    		var win = window.parent.parent.parent.document.body;
+    		var myAlertClose = window.parent.parent.parent.document.body.getElementsByClassName('m_a_cancle')[0];
+    		var myAlertSet = window.parent.parent.parent.document.body.getElementsByClassName('m_a_sure')[0];
+    		var myAlert = window.parent.parent.parent.document.body.getElementsByClassName('modal-overlay')[0]
+    		$(myAlertClose).on('click',function(){ //关闭
+    			$(myAlert).css('display','none');
+    		})
+    		// 上传互动作品按钮弹框设置默认按钮
+    		$(myAlertSet).on('click',function(){ //现在设置
+    			// console.log(window.parent.frames[1].frames[1].location.href);
+    			window.parent.frames[1].frames[1].location.href = '/Template/navyAccountManage/myNavyAccount.html';//右侧跳转到我的水军账号
+    			$(myAlert).css('display','none');
+    			var _menu = window.parent.frames[1].frames[0].document.body;
+    			if($(_menu).find('#navyAccManage').next('.nl_ul').css('display')=='none'){
+    				$(_menu).find('#navyAccManage').click();
+    				$(_menu).find('#navyAccManage').next('.nl_ul').find('.nl_li').eq(0).click();
+    			}else{
+    				$(_menu).find('#navyAccManage').next('.nl_ul').find('.nl_li').eq(0).click();
+    			}
+    		})
+			// console.log(window.parent.frames["frame_main"].frames["frameRight"].location.href);
+
+    		//返回上一级的跳转
+    		$('#back').click(function(){
+    			var rWin = window.parent.frames["frame_main"].frames["frameRight"];
+    			rWin.location.href = $(this).attr('data-href');
+    		})
+    	})
+    </script>
+</body>
+</html>

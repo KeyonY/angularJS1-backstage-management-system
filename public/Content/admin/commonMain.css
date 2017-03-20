@@ -1,0 +1,839 @@
+﻿ css reset */
+body
+{
+    font-size: 12px;
+
+    text-align: center;
+
+    color: #000;
+    background: #fff;
+}
+body.move
+{
+    -webkit-transition: padding .3s ease;
+       -moz-transition: padding .3s ease;
+        -ms-transition: padding .3s ease;
+         -o-transition: padding .3s ease;
+            transition: padding .3s ease;
+}
+body,
+input,
+select,
+button
+{
+    font-family: 'Microsoft YaHei';
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+p,
+img,
+table,
+thead,
+tbody,
+tfoot,
+th,
+tr
+{
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+input,
+button,
+select,
+img
+{
+    line-height: normal;
+
+    margin: 0;
+
+    outline: none;
+}
+select
+{
+    padding: 1px;
+}
+ul,
+ol,
+li
+{
+    list-style: none;
+}
+select,
+input,
+button,
+button img,
+label
+{
+    vertical-align: middle;
+}
+._bg_r {
+    position: absolute;
+    left: -2px;
+    top: 4px;
+    display: inline-block;;
+    width: 15px;
+    height: 15px;
+    background-image: url(/Content/admin/img/input_bg.png); 
+    background-position: 0 0;
+}
+._bg_r_c {
+    background-position: 0 -15px;
+}
+._bg_c {    
+    position: absolute;
+    left: -2px;
+    top: 4px;
+    display: inline-block;;
+    width: 15px;
+    height: 15px;
+    background-image: url(/Content/admin/img/input_bg.png);
+    background-position: 0 -30px;
+}
+._bg_c_c {
+    background-position: 0 -45px;
+}
+header,
+footer,
+section,
+aside,
+nav,
+hgroup,
+figure,
+figcaption
+{
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+a
+{
+    text-decoration: none;
+
+    color: #959595;
+}
+a:hover
+{
+    color: #626262;
+}
+img
+{
+    border: none;
+}
+.img_box_l
+{
+    display: inline-block;
+}
+.img_l
+{
+    display: inline;
+
+    vertical-align: bottom;
+}
+.img_b
+{
+    display: block;
+}
+.lf
+{
+    float: left;
+}
+.rf
+{
+    float: right;
+}
+.clear:after
+{
+    display: table;
+    clear: both;
+
+    content: '';
+}
+/* css reset End */
+
+/* common */
+body,
+.contain,
+.contain_fluid
+{
+    margin: 0 auto;
+}
+body
+{
+    font: 16px/150% 'Microsoft YaHei', Verdana, Geneva, sans-serif;
+
+    width: 100%;
+
+    background: #fff;
+}
+.contain
+{
+    width: 1200px;
+}
+.contain_fluid
+{
+    width: 100%;
+    min-width: 1200px;
+}
+/* common End */
+
+body
+{
+    background-color: #f3f4f8;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 1200px) {
+    body{overflow-x: auto;}
+}
+.cContBox
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/*******分页条******/
+.paging_box
+{
+    height: 100px;
+    padding-top: 60px;
+}
+.paging_ul
+{
+    width: 800px;
+    height: 38px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.paging_lists
+{
+    display: inline-block;
+
+    margin-right: 7px;
+
+    vertical-align: middle;
+}
+.paging_lists:last-child
+{
+    margin: 0;
+}
+.c4c {
+    color: #4cb6cb;
+}
+.paging_a,
+.paging_span,
+.paging_input,
+.paging_a_big
+{
+    font-size: 14px;
+    line-height: 36px;
+
+    display: block;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    text-align: center;
+
+    color: #4cb6cb;
+    border: 1px solid #4cb6cb;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    background-color: transparent;
+}
+.paging_input {
+    border: none;
+    border-bottom: 1px solid #4cb6cb;
+}
+.paging_a:hover
+{
+    text-decoration: none;
+}
+.paging_a:focus
+{
+    text-decoration: none;
+
+    color: #4cb6cb;
+}
+.pageRepeat > .paging_a:focus
+{
+    color: #fff;
+}
+.paging_a_selected
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+.paging_span
+{
+    cursor: default;
+}
+.paging_a_big
+{
+    width: initial;
+    min-width: 36px;
+    padding: 0 5px;   
+}
+.paging_a_big:hover
+{
+    color: #fff;
+    background-color: #4cb6cb;
+    text-decoration: none;
+}
+.paging_bg
+{
+    background-color: #4cb6cb;
+}
+.paging_a:hover
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+.paging_bg:hover
+{
+    background-color: #4cb6cb;
+}
+
+.triangle_left,
+.triangle_right
+{
+    float: left;
+
+    width: 0;
+    height: 0;
+    margin: 13px 0 0 14px;
+
+    border-style: solid;
+}
+.triangle_left
+{
+    margin-left: 12px;
+
+    border-width: 6px 10.4px 6px 0;
+    border-color: transparent #fff transparent transparent;
+}
+.triangle_right
+{
+    border-width: 6px 0 6px 10.4px;
+    border-color: transparent transparent transparent #fff;
+}
+
+
+.prompt_min
+{
+    font-size: 14px;
+    line-height: 26px;
+
+    position: absolute;
+    z-index: 1005;
+    top: 45px;
+    left: 0;
+
+    width: 120px;
+    height: 26px;
+
+    transition: all 400ms;
+    text-align: center;
+
+    color: #fff;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    background-color: rgba(0,0,0,.6);
+}
+.jumpGO_triangle
+{
+    position: absolute;
+    top: -7px;
+    left: 15px;
+
+    width: 0;
+    height: 0;
+
+    border-width: 0 5px 7px 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0,0,0,.6) transparent;
+}
+/*******分页条 END******/
+
+/*********搜索栏 样式********/
+.search_box
+{
+    position: absolute;
+    z-index: 10;
+    top: 30px;
+    right: 30px;
+}
+.search_box:after
+{
+    display: table;
+    clear: both;
+
+    content: '';
+}
+.search_bar
+{
+    float: right;
+
+    min-width: 348px;
+
+    background: #fff;
+}
+.dropdown
+{
+    float: left;
+
+    width: 128px;
+}
+.dropdown > button
+{
+    line-height: 40px;
+
+    position: relative;
+
+    width: 128px;
+    height: 40px;
+    margin-left: -20px;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background: #fff;
+}
+.dropdown > button:hover
+{
+    background: #fff;
+}
+.btn
+{
+    padding: 0;
+}
+.btn > .caret
+{
+    position: absolute;
+    top: 17px;
+    right: 10px;
+}
+.vertical_line
+{
+    position: absolute;
+    top: 10px;
+    left: 8px;
+
+    display: inline-block;
+
+    height: 20px;
+    padding: 0;
+
+    border-left: 1px solid #f2f4f8;
+}
+.vertical_line_m
+{
+    position: absolute;
+    top: 14px;
+    right: 0;
+
+    display: inline-block;
+
+    height: 14px;
+
+    border-right: 1px solid #f2f4f8;
+}
+.dd_text
+{
+    color: #1e262c;
+}
+.dropdown-menu
+{
+    left: -10px;
+    width: 128px;
+    min-width: 128px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+.dropdown-menu > li > a
+{
+    line-height: 34px;
+    height: 34px;
+    color: #718491;
+    text-align: center;
+}
+.dropdown-menu > li > a:hover
+{
+    color: #4cb6cb;
+    background: #f2f4f8;
+}
+.search_kw
+{
+    width: 182px;
+    height: 40px;
+    padding: 0 6px;
+
+    vertical-align: bottom;
+
+    border: none;
+}
+.search_btn_box
+{
+    position: relative;
+    top: -4px;
+    right: 6px;
+
+    display: inline-block;
+
+    width: 30px;
+    height: 20px;
+    margin-left: 4px;
+
+    border-right: 1px solid #f2f4f8;
+}
+.search_btn
+{
+    position: absolute;
+    top: -2px;
+    left: 0;
+
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+    vertical-align: middle;
+    /*background: url('../admin/images/sprites.png') no-repeat 0 -199px;*/
+
+    background-image: url('../admin/images/sprites.png');
+    background-repeat: no-repeat;
+    background-position: -1px -176px;
+    background-size: 184%;
+}
+/*********搜索栏 样式 END********/
+
+/*************左上角选择按钮组 样式************/
+.select_bar
+{
+    position: relative;
+    top: 0;
+    left: 60px;
+    display: block;
+    height: 34px;
+    margin: 30px 0;
+}
+.left_select_bar{
+    position: static;
+    float: left;
+    margin: 30px 60px;
+}
+.btn-group > .btn
+{
+    font-size: 14px;
+
+    padding: 6px 18px;
+
+    transition: all 200ms;
+
+    color: #4cb6cb;
+    border-color: #4cb6cb;
+    border-radius: 0;
+    outline: none;
+    background-color: #fff;
+}
+.btn-group > .btn:hover,
+.btn-group > .sb_selected
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+/*************左上角选择按钮组 样式 END************/
+
+/*************居中的选择按钮组 样式************/
+.select_group
+{
+    position: absolute;
+    top: 70px;
+
+    width: 100%;
+
+    text-align: center;
+}
+.sg_btns
+{
+    font-size: 14px;
+
+    margin: 0 10px;
+    padding: 6px 12px;
+
+    transition: all 200ms;
+
+    color: #4cb6cb;
+    border: 1px solid #4cb6cb;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.sg_btns:hover
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+.sgb_selected,
+.btn-group > .sgb_selected
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+.sgb_selected
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+/*************居中的选择按钮组 样式 END************/
+
+/*************左侧的选择按钮组 样式************/
+.ctrl_group
+{   
+    position: static;
+    padding-left: 60px;
+
+    text-align: left;
+}
+.ctrl_group > .sg_btns
+{
+    margin: 0 5px 0 0;
+}
+.ctrl_group > .sg_btns:hover
+{
+    color: #fff;
+    background-color: #4cb6cb;
+}
+/*************左侧的选择按钮组 样式 END************/
+
+/* 页面刷新 ng-hide="true" ng-show="false" 闪烁 添加属性 ng-cloak 无值 */
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak
+{
+    display: none !important;
+}
+
+/* 删除确认弹框 */
+.modal-overlay
+{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.5);
+}
+.modal_del
+{
+    position: fixed;
+    top: 30%;
+    left: 34%;
+
+    overflow: hidden;
+
+    width: 400px;
+    height: 230px;
+
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+}
+.md_title
+{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
+
+    text-align: left;
+
+    color: #fff;
+    background-color: #2c3942;
+}
+.md_cont
+{
+    text-align: center;
+    height: 180px;
+    margin: 0 55px;
+    padding-top: 36px;
+}
+.md_text
+{
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #656f71;
+}
+.md_btns
+{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+}
+.md_btn
+{
+    font-size: 14px;
+
+    width: 98px;
+    height: 32px;
+    margin: 0 9px;
+
+    cursor: pointer;
+    transition: all 200ms;
+
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background-color: #4cb6cb;
+}
+.md_btn:hover
+{
+    background-color: #4096a7;
+}
+
+/**********错误提示信息弹窗*********/
+.errorModal
+{
+    font-size: 14px;
+    line-height: 20px;
+
+    position: fixed;
+    z-index: 2016;
+    top: 40%;
+    left: 40%;
+
+    display: none;
+
+    width: 280px;
+    padding: 20px 10px;
+
+    text-align: center;
+
+    color: #fff;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    background-color: rgba(0,0,0,.65);
+}
+.errorMessage
+{
+    color: #fff;
+}
+/**********错误提示信息弹窗 END*********/
+
+/*************权限样式************/
+.locBtn{
+    border-color: #dcdcdc !important;
+    color: #fff !important;
+    background-color: #dcdcdc !important;
+}
+/*************权限样式 END************/
+
+/**************搜索页面的搜索栏*************/
+.searchBox{
+    position: relative;
+    width: 710px;
+    height: 45px;
+    margin: 20px auto;
+}
+.verticalLine,
+.verticalLine_20{
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    z-index: 10;
+    width: 1px;
+    height: 30px;
+    background-color: #f2f4f8;
+}
+.verticalLine_20{
+    top: 11px;
+    left: 127px;
+    height: 24px;
+}
+.dropdown-menu{
+    left: 0;
+}
+.dropdown{
+    height: 40px;
+}
+.searchBox .dropdown > button{
+    height: 45px;
+    line-height: 45px;
+    margin: 0;
+}
+.open>.dropdown-toggle.btn-default{background-color: #f2f4f8;}
+.btn > .caret{
+    top: 20px;
+}
+.sbi_input{
+    float: left;
+    width: 450px;
+    height: 45px;
+    background-color: #fff;
+}
+.sbi_input > input{
+    width: 440px;
+    height: 30px;
+    line-height: 30px;
+    margin: 8px 10px 0 0;
+    padding: 0 10px 0 20px;
+    border: 0;
+    border-right: 1px solid #f2f4f8;
+    font-size: 14px;
+    color: #1e262c;
+}
+.sb_btn{
+    width: 130px;
+    height: 45px;
+    border: 0;
+    outline: none;
+    background-color: #4cb6cb;
+    font-size: 16px;
+    color: #fff;
+}
+.bg_clearFloat > .btn{
+    float: none;
+}
+/**************搜索页面的搜索栏 END************

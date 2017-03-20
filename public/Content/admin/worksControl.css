@@ -1,0 +1,194 @@
+/***********作品列表页面**********/
+.clear:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+.select_bar{
+	position: relative;
+	top: 0;
+	display: block;
+	height: 34px;
+	margin-top: 30px;
+}
+.btns_dispose{
+	position: relative;
+	top: 0;
+	margin-top: 30px;
+}
+.ctrl_group{
+	position: relative;
+	top: 0;
+	margin-top: 30px;
+	float: left;
+}
+.wlBox{
+	position: relative;
+	margin-top: 140px;
+	padding: 0 30px 0 60px;
+	text-align: left;
+}
+.wl_pass{
+	float: left;
+	margin: 30px 0 0 30px;
+}
+.wl_pass > .active{color: #fff;background-color: #4cb6cb;}
+.wl_pass > button{margin: 0 3px;}
+.wl_lists{
+	position: relative;
+	top: 0;
+	display: inline-block;
+	width: 354px;
+	height: 454px;
+	margin: 30px 30px 0 0;
+	background-color: #fff;
+	transition: all 500ms ease;
+	font-size: 14px;
+}
+.wl_lists:hover{
+	box-shadow: 0 5px 40px rgba(76, 182, 203, 0.4);
+	top: -1px;
+}
+.wll_imgBox{
+	width: 354px;
+	height: 260px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.wll_img{
+	width: 354px;
+}
+.wll_line{
+	width: 315px;
+	height: 22px;
+	line-height: 20px;
+	padding-left: 20px;
+	font-size: 14px;
+	color: #596268;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.checkbox{
+	position: absolute;
+	top: 270px;
+	right: 10px;
+	display: block;
+	width: 15px;
+	height: 15px;
+	margin: 0;
+	padding: 1px;
+	border: 1px solid #8d8d8d;
+}
+.checkbox > div{
+	width: 11px;
+	height: 11px;
+}
+.checkbox input[type=checkbox]{
+	margin: 0;
+	display: none;
+}
+.cb_checked{
+	background-color: #ea0001;
+}
+
+.wll_btn{
+	width: 90px;
+	height: 30px;
+	padding: 0;
+	margin: 10px 0 0 56px;
+	border: 2px solid #4cb6cb;
+	border-radius: 4px;
+	line-height: 26px;
+	text-align: center;
+	color: #4cb6cb;
+	font-size: 14px;
+	background-color: #fff;
+	transition: all 200ms;
+}
+.wll_btn_del{
+	color: #f1517a;
+	border-color: #f1517a;
+}
+.wll_btn:hover{
+	background-color: #4cb6cb;
+	color: #fff;
+}
+.wll_btn_del:hover{
+	background-color: #f1517a;
+	color: #fff;
+}
+.wll_btn_selected{
+	background-color: #4cb6cb;
+	color: #fff;
+	border-color: #4cb6cb;
+}
+
+.wll_zhishouye:after{content: '已至首页';}
+.wll_zhishouye:hover:after{content: '取消首页';}
+.wll_zhishouye:hover{color: #4cb6cb;background-color: #fff;}
+
+.search_result{
+	height: 24px;
+	margin-top: 30px;
+	padding-left: 60px;
+	text-align: left;
+	font-size: 14px;
+}
+.sr_color{
+	color: #4cb6cb;
+}
+/***********作品列表页面 END**********/
+
+/*************删除等操作弹窗************/
+.modal_del{
+	display: none;
+	position: fixed;
+	top: 30%;
+	left: 35%;
+	width: 400px;
+	height: 230px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+	background-color: #fff;
+	overflow: hidden;	
+}
+.md_title{
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #2c3942;
+	text-align: left;
+}
+.md_cont{
+	height: 180px;
+	margin: 0 55px;
+	padding-top: 36px;
+}
+.md_text{
+	font-size: 16px;
+	color: #656f71;
+	line-height: 24px;
+}
+.md_btns{
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+.md_btn{
+	width: 98px;
+	height: 32px;
+	margin: 0 9px;
+	border-radius: 4px;
+	border: none;
+	background-color: #4cb6cb;
+	color: #fff;
+	font-size: 14px;
+	transition: all 200ms;
+}
+.md_btn:hover{
+	background-color: #4096a7;
+}
+/*************删除等操作弹窗 END************/

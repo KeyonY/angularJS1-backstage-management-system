@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>修改资料</title>
+	<!-- 设置 viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- IE  -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 兼容国产浏览器的高速模式 -->
+	<meta name="renderer" content="webkit">
+	<link href="../../Content/admin/commonMain.css" rel="stylesheet">
+	<style>
+		body {
+			background: #F3F4F8;
+		}
+		.main {
+			width: 600px;
+			margin: 200px auto;
+		}
+		p {
+			margin-top: 32px;
+			margin-bottom: 14px;
+		}
+		input[type="text"],input[type="password"] {
+			width: 430px;
+			height: 46px;
+			border: 1px solid #9A9A9C;
+			padding: 0 10px;
+		}
+		.tips_box {
+			text-align: left;
+			padding-left: 115px;
+			margin-top: 0;
+			margin-bottom: 8px;
+		}
+		.tips {
+			color: #CB0B18;
+		}
+		.btns {
+			text-align: left;
+			margin-left: 84px;
+		}
+		.btns>button {
+			cursor: pointer;
+			height: 34px;
+			border: 1px solid #4DB7C5;
+			color: #4DB7C5;
+			background: #FFF;
+		}
+		.btns>button:hover {
+			color: #fff;
+			background: #4db7c5;
+			transition: all 400ms;
+		}
+		.btns>a {
+			display: inline-block;
+			height: 32px;
+			line-height: 32px;
+			border: 1px solid #F25183;
+			color: #F25183;
+			vertical-align: top;
+			text-align: center;
+			margin-left: 64px;
+		}
+		.btns>a:hover {
+			color: #fff;
+			background: #f25183;
+			transition: all 400ms;
+		}
+		.btns>button, .btns>a {
+			font-size: 14px;
+			font-weight: 500;
+			width: 110px;
+			border-radius: 3px;
+		}
+		.posi {
+			position: relative;
+		}
+		.posi > .tip {
+			position: absolute;
+			left: 114px;
+			top: 50px;
+			color: #CB0B18;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="parentCtrl">
+    <form name="myform" class="main" ng-cloak>
+    	<p>
+	    	<span>登录账号：</span>
+	    	<input type="text" name="userID" id="userName" ng-model="info.account" placeholder="用于登录管理系统的账号" ng-blur="checkEmailExiFun()" autofocus="true" required />
+    	</p>
+    	<p class="posi">
+    		<span>手机号码：</span>
+    		<input type="text" name="phone" id="phone" ng-model="info.mobile"  ng-pattern="/^1\d{10}$/" placeholder="请输入您的手机号码" ng-blur="checkPhoneExiFun()" maxlength="11" minlength="11" required /> <br>
+    		<span class="tip" ng-show="myform.phone.$dirty && myform.phone.$invalid">&nbsp;&nbsp;请输入真实的手机号码</span>
+    	</p>
+    	<p>
+    		<span>当前密码：</span>
+    		<input type="password" name="pwd" id="pwd" ng-model="pwd" placeholder="请输入您的当前密码，以确认身份" required />
+    	</p>
+    	<!-- <p class="tips_box">
+    		<span class="tips">&nbsp;&nbsp;请输入登录账号</span>
+    	</p> -->
+    	<div class=btns>
+	    	<button id="login" ng-click="submitFun()">确认修改</button>
+	    	<a href="personalInfo.html">取消</a>
+    	</div>
+    </form>
+    <!-- 验证手机号是否存在弹框 -->
+	<my-alert message="手机号已被占用" ng-show="alertPhone"></my-alert>
+	<!-- 验证登录账号(email)是否存在弹框 -->
+	<my-alert message="登录账号已被占用" ng-show="alertEmail"></my-alert>
+    <!-- 引入jQuery -->
+	<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+	<script src="../../Scripts/angular.min.js"></script>
+	<script src="../../Scripts/admin/adminGlobal.js"></script>
+	<script>
+		topTitle('修改资料'); //修改顶部标题
+		angular.module('myApp', ['ng','commonTip'])
+			.controller('parentCtrl',function($scope,$http){
+				$scope.href = window.location.href;
+				$scope.idx = $scope.href.lastIndexOf('=');
+				$scope.info = JSON.parse(decodeURI($scope.href.slice($scope.idx+1)));
+				// console.log($scope.info);
+
+				// 验证账号名是否已存在
+				$scope.alertEmail = $scope.alertPhone = false;
+				$scope.checkEmailExiFun = function () {
+					$http.get('/Admin/ValidateInput?type=1&' + 'input=' + $scope.info.account)
+					.success(function (response) {
+						if(response === 'True') {
+							// $scope.info.account = undefined;
+							$scope.alertEmail = true;
+						}
+					})
+				}
+				// 验证手机号是否已存在
+				$scope.checkPhoneExiFun = function () {
+					$http.get('/Admin/ValidateInput?type=3&' + 'input=' + $scope.info.mobile)
+					.success(function (response) {
+						if(response === 'True') {
+							// $scope.info.mobile = undefined;
+							$scope.alertPhone = true;
+						}
+					})
+				}
+				$scope.myAlertConfirm = $scope.myAlertCancel = function () {
+					$scope.alertPhone = $scope.alertEmail = false;
+				}
+
+				$scope.submitFun = function () {
+					if($scope.info.account == undefined || $scope.info.mobile == undefined || $scope.pwd == undefined){
+						return;
+					}else {
+						var jsObj = {
+									// managerID: $scope.info.managerID,
+									account: $scope.info.account, 
+									phone: $scope.info.mobile,
+									password: $scope.pwd,
+								}
+						var json = JSON.stringify(jsObj);
+						console.log(json);
+						$.ajax({
+							type: "POST",
+							url: "/ManagerAsync/SetBase",
+							data: json,
+							success: function(response){
+								var obj = (typeof(response)=='object'?response:JSON.parse(response));
+								console.log(obj);
+								/*
+								if(obj.success){
+									window.location.href = '../submittedSucc.html';
+								}else {
+									$scope.falseMessage = obj.message;
+									$scope.$apply(function() {  //手动修改models后手动调用$apply()方法，及时更新view
+							            $scope.submitResponse = obj.success;
+							        });
+								}
+								*/
+							}
+						})
+					}
+				}
+			})
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.addAdBox{width: 560px; margin: 100px auto 0;}
+
+.tLine{height: 60px; line-height: 60px;}
+.tl_title{float: left; width: 100px; height: 60px; padding-right: 10px; font-size: 18px; color: #2c3941;text-align: right;}
+.tl_cont{position: relative;}
+
+.dropdown{width: 336px; margin-right: 15px;}
+.dropdown > button{width: 336px; margin: 0;}
+.dropdown-menu{top: 53px; width: 336px;}
+.open>.dropdown-toggle.btn-default{background-color: #e3e3e3;}
+.dropdown-menu > li > a:hover{background-color: #e3e3e3;}
+.btn_click{width: 96px; height: 30px; line-height: 30px;border: 0; background-color: #4cb7cb; color: #fff; font-size: 14px;border-radius: 3px; outline: none;}
+.btn_click:active{background-color: #3f9daf;}
+.btn_radioGroup{text-align: left;}
+.btn_radioGroup > button{width: 85px; height: 30px; line-height: 28px;margin-right: 5px; border: 1px solid #4cb7cb; background-color: #fff; color: #4cb7cb; font-size: 14px;border-radius: 3px; outline: none; transition: all 0.2s;}
+.btn_radioGroup > .active,
+.btn_radioGroup > button:hover{background-color: #4cb7cb;color: #fff;}
+
+.label_radio{line-height: 60px;}
+.label_radio_3{width: 80px; margin-right: 50px;}
+.label_radio > input{margin: -5px 5px 0 0;}
+
+.inp{height: 34px; line-height: 34px; padding: 0 6px; border: 1px solid #acadb1;transition: all 0.2s;}
+.inp_196{width: 196px;}
+.inp_350{width: 350px;}
+.inp_450{width: 450px;}
+.inp_error{box-shadow: 0 0 5px #fb4748;}
+.daterangepicker .ranges .range_inputs .applyBtn,
+.daterangepicker .ranges .range_inputs .cancelBtn{width: 50px; height: 30px; line-height: 30px;text-align: center;}
+.error{position: absolute; top: 0px; right: -220px; display: block; width: 200px; font-size: 14px; color: #eb0001;}
+
+.ckBox{display: inline-block; width: 100px; height: 60px; line-height: 60px; margin: 0 30px 0 0;}
+.ckBox input[type=checkbox]{margin: 0;}
+.ckBox > span{height: 20px; line-height: 20px;}
+
+.label_file{position: relative; z-index: 1; width: 100px; height: 30px; border: 1px solid #4cb7cb; border-radius: 3px; background-color: #fff; color: #4cb7cb; overflow: hidden; cursor: pointer; transition: all 0.2s;}
+.label_file > input{position: relative; z-index: 3; visibility: hidden;}
+.label_file > span{position: absolute; top: 0; left: 0; z-index: 2; display: block; width: 100px; height: 30px; line-height: 30px;text-align: center; font-size: 14px; font-weight: 300;}
+.label_file:hover{background-color: #4cb7cb;}
+.label_file:hover > span{color: #fff;}
+
+.note{margin-left: 20px; color: #eb0001;}
+.codeTextarea{width: 450px; height: 120px; font-size: 14px; resize: none; outline: none;}
+
+.submit{width: 110px; height: 36px; padding: 0; line-height: 36px; border: 1px solid #4cb7cb; border-radius: 4px; font-size: 14px; color: #4cb7cb; background-color: #fff; outline: none; transition: all 0.2s;}
+.submit:hover{background-color: #4cb7cb;color: #fff;}
+
+.picSelect{top: 4%; left: 10%; z-index: 10; width: 1000px; height: 820px;}
+.mClose{float: right; display: block; width: 48px; height: 50px; line-height: 30px; padding: 10px 16px; font-size: 24px; color: #fff; cursor: pointer;}
+.mClose:hover{background-color: #252f36;}
+.md_btns{bottom: 20px;}
+.md_cont{height: 700px; padding-top: 20px;}
+.imgBox{height: 600px; margin: 20px auto 0; text-align: center;}
+.imgBox > img{height: 620px;}

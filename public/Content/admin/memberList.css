@@ -1,0 +1,310 @@
+/* memberList.css */
+body
+{
+    font-family: 'microsoft yahei';
+
+    background: #f2f4f8;
+}
+.main
+{
+    margin-top: 65px;
+    margin-right: 95px;
+    margin-left: 85px;
+    text-align: center;
+}
+thead > tr
+{
+    background: #959aa4;
+}
+thead > tr > th:last-child
+{
+    width: 280px;
+}
+.main > table > thead > tr > th
+{
+    font-size: 18px;
+    line-height: 60px;
+
+    height: 60px;
+    padding: 0;
+
+    text-align: center;
+    vertical-align: middle;
+
+    color: #fff;
+    border-bottom-width: 0;
+}
+.main > table > tbody > tr > td
+{
+    height: 40px;
+    padding: 0;
+
+    vertical-align: middle;
+}
+.main > table > tbody > tr > td > div
+{
+    max-width: 460px;
+    margin: auto;
+}
+tbody > tr
+{
+    background: #fff;
+}
+tr > td a
+{
+    color: #4cb6cb;
+}
+a:hover
+{
+    text-decoration: none;
+}
+tr > td > span
+{
+    display: inline-block;
+
+    vertical-align: middle;
+}
+tr > td > span:nth-child(1),
+tr > td > span:nth-child(2)
+{
+    width: 68px;
+}
+tr > td > span:nth-child(3)
+{
+    width: 50px;
+}
+tr > td > span:nth-child(4),
+tr > td > span:nth-child(5)
+{
+    width: 30px;
+}
+tr > td > span:nth-child(3) > a,
+tr > td > span:nth-child(4) > a
+{
+    color: #d1305a;
+}
+.paging_ul a:hover
+{
+    text-decoration: none !important;
+}
+.modal-overlay
+{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.5);
+}
+.modal-data
+{
+    position: fixed;
+    top: 18%;
+    left: 32%;
+
+    box-sizing: border-box;
+    width: 594px;
+
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 4px 5px 4px #c8cbd0;
+}
+.modal-data > h3
+{
+    font-weight: 600;
+    line-height: 50px;
+
+    height: 50px;
+    margin: 0;
+    padding-left: 22px;
+
+    text-align: left;
+
+    color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #2c3942;
+}
+.modal-main > h3
+{
+    font-weight: 600;
+
+    color: #344048;
+}
+h3
+{
+    font-size: 22px;
+}
+.modal-main > p
+{
+    /*padding-left: 74px;*/
+
+    text-align: left;
+    width: 480px;
+    margin: 0 auto;
+}
+.position, .partOfNews {
+    max-height: 78px;
+    overflow-y: auto;
+}
+.partOfWorks {
+    max-height: 110px;
+    /*overflow-y: auto;*/
+}
+label {
+    text-align: left;
+}
+.position > span > label > b,
+.partOfWorks > span > label > b,
+.partOfNews > span > label > b
+{
+    display: inline-block;
+    overflow: hidden;
+
+    width: 98px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+input[type=checkbox],
+input[type=radio]
+{
+    vertical-align: top;
+}
+.modal-main > button,
+.modal-main > .button
+{
+    line-height: 32px;
+
+    width: 98px;
+    height: 32px;
+    margin: 30px 10px;
+
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background: #4cb6cb;
+}
+.modal-main > .button
+{
+    display: inline-block;
+}
+.modal-main > p > .tip
+{
+    font-size: 16px;
+
+    position: relative;
+    top: 6px;
+    left: 24px;
+
+    color: #ea0001;
+}
+label
+{
+    font-weight: 400;
+
+    color: #596268;
+}
+.pwdReset
+{
+    width: 524px;
+    height: 268px;
+}
+.pwdReset > form > p
+{
+    height: 40px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    padding-left: 60px;
+}
+.pwdReset > form > p > span.item
+{
+    display: inline-block;
+
+    width: 90px;
+
+    text-align: right;
+}
+.pwdReset > form > p > span.tip
+{
+    padding-left: 66px;
+
+    color: #ea0001;
+}
+.pwdReset > form > p > input
+{
+    width: 222px;
+    height: 24px;
+    padding-right: 6px;
+    padding-left: 6px;
+
+    border: 1px solid #d6d6d6;
+}
+.pwdReset > form > button
+{
+    margin-top: 46px;
+}
+.pwdReset > form > .button
+{
+    position: relative;
+    top: 9px;
+
+    display: inline-block;
+}
+.button:hover
+{
+    text-decoration: none;
+}
+b
+{
+    font-weight: 400;
+}
+b > i
+{
+    font-style: normal;
+}
+b:last-child > i
+{
+    display: none;
+}
+.pt72 {
+    padding-top: 72px;
+    font-size: 24px;
+}
+.md-text {
+    font-size: 18px;
+}
+#reqBox {
+    position: fixed;
+    top: 18%;
+    left: 36%;
+    box-sizing: border-box;
+    width: 300px;
+    height: 168px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 4px 5px 4px #c8cbd0;
+    display: none;
+}
+#reqBox > p {
+    text-align: center;
+    font-size: 18px;
+    padding-top: 48px;
+}
+#reqBox > button {
+    border: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 98px;
+    height: 32px;
+    color: #FFF;
+    background: #4CB6CB;
+    position: absolute;
+    bottom: 24px;
+    left: 100px;
+}

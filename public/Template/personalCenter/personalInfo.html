@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>个人信息</title>
+	<!-- 设置 viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- IE  -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 兼容国产浏览器的高速模式 -->
+	<meta name="renderer" content="webkit">
+	<link href="../../Content/admin/commonMain.css" rel="stylesheet">
+	<style>
+		body {
+			background: #F3F4F8;
+		}
+		.main {
+			width: 566px;
+			margin: 200px auto;
+		}
+		p {
+			line-height: 32px;
+		}
+		span {
+			display: inline-block;
+			width: 46%;
+		}
+		.item {
+			text-align: right;
+			font-weight: 500;
+			padding-right: 12px;
+		}
+		.item + span {
+			text-align: left;
+			padding-left: 16px;
+			font-size: 14px; 
+		}
+		#reset {
+			display: inline-block;
+			width: 110px;
+			height: 34px;
+			line-height: 34px;
+			border: 1px solid #4AB8C9;
+			border-radius: 3px;
+			color: #4AB8C9;
+			margin-top: 24px;
+    		margin-left: 114px;
+    		background: #fff;
+		}
+		#reset:hover {
+			color: #FFF;
+			background: #2A8495;			
+    		transition: all 400ms;
+		}
+		.btns {
+			text-align: center;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="parentCtrl">
+    <div class="main">
+    	<p>
+	    	<span class="item">姓名：</span>
+	    	<span ng-bind="userInfo.trueName"></span>
+    	</p>
+    	<p>
+    		<span class="item">性别：</span>
+    		<span ng-bind="userInfo.trueName?'男':'女'"></span>
+    	</p>
+    	<p>
+	    	<span class="item">手机号：</span>
+	    	<span ng-bind="userInfo.mobile"></span>
+    	</p>
+    	<p>
+    		<span class="item">登录账号：</span>
+    		<span ng-bind="userInfo.account"></span>
+    	</p>
+    	<p>
+	    	<span class="item">当前职位：</span>
+	    	<span ng-bind="userInfo.roleInfo.roleName"></span>
+    	</p>
+    	
+    	<div class=btns>
+	    	<a href="javascript:void(0)" ng-click="linkFun(userInfo)" id="reset">修改</a>
+    	</div>
+    </div>
+    <!-- 引入jQuery -->
+	<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+	<script src="../../Scripts/angular.min.js"></script>
+	<script src="../../Scripts/admin/adminGlobal.js"></script>
+	<script>
+		topTitle('个人信息');
+		angular.module('myApp', ['ng'])
+			.controller('parentCtrl',function($scope,$http){
+				$http.get('/Admin/GetManagerInfo')
+				.success(function (response) {
+					var obj = (typeof(response)=='object'?response:JSON.parse(response));
+					// console.log(obj);
+					$scope.userInfo = obj;
+				})
+				$scope.linkFun = function(info) {
+					// console.log(info);
+					var info = {account:info.account,mobile:info.mobile}
+					// console.log(info);
+					var json = JSON.stringify(info);
+					// console.log(json);
+					window.location.href = '/AdminTemplate/personalCenter/editProfile.html?info=' + json;
+					// window.location.href = '/AdminTemplate/personalCenter/editProfile.html';
+				}
+			})
+	</script>
+	
+</body>
+</html>

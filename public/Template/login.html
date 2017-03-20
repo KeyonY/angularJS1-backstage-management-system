@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>用户登录</title>
+	<!-- 设置 viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- IE  -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 兼容国产浏览器的高速模式 -->
+	<meta name="renderer" content="webkit">
+	<link href="../../Content/admin/commonMain.css" rel="stylesheet">
+	<link href="../../Content/admin/adminlogin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main" ng-cloak ng-controller="parentCtr">
+    	<h1>登录</h1>
+    	<form name="loginForm">
+            <p>
+                <span>账号：</span>
+                <input type="text" ng-model="userName" id="userName" minlength="3" maxlength="50" placeholder="申请入职时填写的登录账号（不是真实姓名）" autofocus="true" required />
+            </p>
+            <p>
+                <span>密码：</span>
+                <input type="password" ng-model="pwd" id="pwd" minlength="6" placeholder="请输入设置的密码" required />
+            </p>
+            <div class="checkbox">
+                <label class="label_checkbox"><input type="checkbox" ng-model="rememberMe" name="rememberMe" id="rememberMe"> &nbsp;记住密码</label>
+            </div>
+            <p class="tips_box">
+                <span ng-show="!canLogin" class="tips">请填写真实姓名</span>
+            </p>
+            <div class=btns>
+                <button ng-click="loginFun()" id="login">登录</button>
+                <a href="teamManagement/positionApplication.html">入职申请</a>
+            </div>   
+        </form>
+    </div>
+    <!-- 引入jQuery -->
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/angular.min.js"></script>
+    <!-- <script src="../../Scripts/admin/adminGlobal.js"></script> -->
+	<script>
+        angular.module('loginApp',['ng']).
+            controller('parentCtr',function($scope,$http){
+                $scope.canLogin = true; //是否可以登录
+                $scope.loginFun = function(){
+                    // console.log($scope.userName);
+                    // console.log($scope.pwd);
+                    // console.log($scope.rememberMe);
+                    if($scope.userName == undefined || $scope.pwd == undefined ||
+                        $scope.userName == '' || $scope.pwd == ''){
+                        return;
+                    }else {
+                        var jsObj = {account:$scope.userName,password:$scope.pwd,record:$scope.rememberMe};
+                        var json = JSON.stringify(jsObj);
+                        console.log(json);
+                        $.ajax({
+                            type: "POST",
+                            url: "/login",
+                            data: json,
+                            success: function(response){
+                                console.log(response);
+                                var obj = (typeof(response)=='object')?response:JSON.stringify(response);
+                                console.log(obj);
+                                if(obj.success){
+                                    window.location.href = '/Template/iframeAdmin.html';
+                                    // localStorage.setItem('manageID',obj.message);
+                                }else {
+                                    alert(obj.message);
+                                }
+                            }
+                        })
+                    }
+                }
+            })   
+    </script>
+	
+</body>
+</html>

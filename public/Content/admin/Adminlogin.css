@@ -1,0 +1,126 @@
+/* Adminlogin.css */
+
+/* for login & positionApplication */
+.main
+{
+    width: 600px;
+    margin: 200px auto;
+    text-align: center;
+}
+p
+{
+    position: relative;
+
+    margin-top: 32px;
+    margin-bottom: 14px;
+}
+p > .tip
+{
+    position: absolute;
+    bottom: -26px;
+    left: 116px;
+
+    color: #cb0b18;
+}
+input[type='text'],
+input[type='password']
+{
+    width: 430px;
+    height: 46px;
+    padding: 0 10px;
+
+    border: 1px solid #9a9a9c;
+}
+.checkbox
+{
+    text-align: left;
+}
+.label_checkbox
+{
+    margin-left: 98px;
+}
+.tips_box
+{
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-left: 98px;
+
+    text-align: left;
+}
+.tips
+{
+    color: #cb0b18;
+}
+.btns
+{
+    margin-left: 98px;
+
+    text-align: left;
+}
+.btns > button
+{
+    height: 34px;
+
+    cursor: pointer;
+
+    color: #4db7c5;
+    border: 1px solid #4db7c5;
+    background: #fff;
+}
+.btns > a
+{
+    line-height: 32px;
+
+    display: inline-block;
+
+    height: 32px;
+    margin-left: 64px;
+
+    text-align: center;
+    vertical-align: top;
+
+    color: #f25183;
+    border: 1px solid #f25183;
+}
+.btns > button,
+.btns > a
+{
+    font-size: 14px;
+    font-weight: 500;
+
+    width: 110px;
+
+    border-radius: 3px;
+}
+/* for login & positionApplication End */
+
+/* Only for positionApplication */
+.hr
+{
+    width: 536px;
+    height: 1px;
+    margin: 40px auto;
+
+    background: #cecece;
+}
+.sex
+{
+    padding-left: 36px;
+
+    text-align: left;
+}
+.man,
+.woman
+{
+    margin-right: 24px;
+    margin-left: 14px;
+}
+/* Only for positionApplication End */
+
+.modal_del
+{
+    top: 36%;
+    left: 42%;
+
+    height: 180px;
+}
